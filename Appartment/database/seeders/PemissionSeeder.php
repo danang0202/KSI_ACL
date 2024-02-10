@@ -31,7 +31,7 @@ class PemissionSeeder extends Seeder
                 'nama_objek' => 'Lapangan Bulutangkis'
             ],
             [
-                'slug_objek' => 'Bs',
+                'slug_objek' => 'bs',
                 'nama_objek' => 'Lapangan Basket'
             ],
         ]);
