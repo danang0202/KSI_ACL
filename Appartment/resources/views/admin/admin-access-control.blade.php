@@ -239,6 +239,37 @@
                                 <a href="admin-edit-user.html" class="btn btn-sm btn-primary">Edit</a>
                             </td>
                         </tr>
+
+                      @php
+                          $no = 0;
+                      @endphp
+                      @foreach ($users as $user)
+                          @php
+                              $all_permission = "";
+                              $no = $no + 1;
+                          @endphp
+                          @if ($user->name == 'admin')
+                              @continue
+                          @endif
+
+                          @foreach ($user->userPermission as $permission)
+                              $all_permission = $all_permission.", ".$permission;
+                          @endforeach
+                        
+                          <tr>
+                              <td>{{ $no }}</td>
+                              <td>{{ $user->name }}</td>
+                              <td>{{ preg_match('/1/', $all_permission)? 'Yes' : 'No' }}</td>
+                              <td>{{ preg_match('/2/', $all_permission)? 'Yes' : 'No' }}</td>
+                              <td>{{ preg_match('/3/', $all_permission)? 'Yes' : 'No' }}</td>
+                              <td>{{ preg_match('/4/', $all_permission)? 'Yes' : 'No' }}</td>
+                              <td>{{ preg_match('/5/', $all_permission)? 'Yes' : 'No' }}</td>
+                              <td>
+                                  <a href="admin-edit-user.html" class="btn btn-sm btn-primary">Edit</a>
+                              </td>
+                          </tr>
+                      @endforeach
+
                         <!-- Sebaris data tambahan di sini -->
                     </tbody>
                 </table>
