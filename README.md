@@ -24,12 +24,12 @@ Role User/Penghuni
    - badminton request
 3. Namun tidak semua pengguna bisa memiliki request tersebut dan list
    akses setiap submenu tersebut diatur berdasarkan pemilihan tipe unit
-   Amaryllis: Taman
-   Bougenville: Taman, Kolam Renang
-   Violet: Taman, Lapangan Bulutangkis
-   Rose: Taman, Lapangan Bulutangkis, Kolam Renang
-   Clover: Kolam Renang, Lapangan Bulutangkis, Gym
-   Orchid: Taman, Gym, Lapangan Basket
+   - Amaryllis: Taman
+   - Bougenville: Taman, Kolam Renang
+   - Violet: Taman, Lapangan Bulutangkis
+   - Rose: Taman, Lapangan Bulutangkis, Kolam Renang
+   - Clover: Kolam Renang, Lapangan Bulutangkis, Gym
+   - Orchid: Taman, Gym, Lapangan Basket
    Penentuan list hak akses ini ditentukan pada saat pendaftaran akun
 4. Jika user tidak memiliki hak akses ke salah satu submenu request kecuali
    list request, maka akan dapat pesan "anda tidak memiliki hak akses pada
