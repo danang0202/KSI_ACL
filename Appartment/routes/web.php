@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/testing', function () {
+    return view('admin.admin-edit-user');
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
