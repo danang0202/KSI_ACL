@@ -24,4 +24,9 @@ class Fasilitas extends Model
     {
         return $this->hasMany(PenggunaanFasilitas::class, 'penggunaan_fasilitas_id');
     }
+
+    public function permission()
+    {
+        return $this->hasMany(Permission::class, 'permission_id');
+    }
 }

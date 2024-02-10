@@ -17,11 +17,17 @@ class Permission extends Model
      protected $guarded = ['id'];
 
     protected $fillable = [
-        'nama_permission'
+        'fasilitas_id',
+        'access'
     ];
 
     public function userPermission()
     {
         return $this->hasMany(UserPermission::class, 'user_permission_id');
+    }
+
+    public function fasilitas()
+    {
+        return $this->belongsTo(Fasilitas::class, 'fasilitas_id');
     }
 }

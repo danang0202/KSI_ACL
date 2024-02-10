@@ -13,12 +13,9 @@ return new class extends Migration
     {
         Schema::create('user_permission', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->char('permission_id',2);
+            $table->foreignId('user_id')->constrained('users','id');
+            $table->foreignId('permission_id')->constrained('permission','id');
             $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('permission_id')->references('id')->on('permission');
         });
     }
 

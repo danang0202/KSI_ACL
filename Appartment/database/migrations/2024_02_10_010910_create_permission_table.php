@@ -12,8 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('permission', function (Blueprint $table) {
-            $table->char('id',2)->primary();
-            $table->string('nama_permission');
+            $table->id();
+            $table->foreignId('fasilitas_id')->constrained('fasilitas','id');
+            $table->boolean('access');
+            $table->timestamps();
         });
     }
 

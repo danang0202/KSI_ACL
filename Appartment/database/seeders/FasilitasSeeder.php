@@ -17,6 +17,7 @@ class FasilitasSeeder extends Seeder
             ['nama_fasilitas'=>'Kolam Renang'],
             ['nama_fasilitas'=>'Gym'],
             ['nama_fasilitas'=>'Lapangan Bulutangkis'],
+            ['nama_fasilitas'=>'Lapangan Basket'],
         ]);
     }
 }
