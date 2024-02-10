@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('permission', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('fasilitas_id')->constrained('fasilitas','id');
-            $table->boolean('access');
+            $table->string('slug_objek');
+            $table->string('nama_objek');
             $table->timestamps();
         });
     }

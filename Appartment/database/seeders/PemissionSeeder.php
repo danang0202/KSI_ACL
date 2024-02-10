@@ -15,44 +15,24 @@ class PemissionSeeder extends Seeder
     {
         Permission::insert([
             [
-                'fasilitas_id' => 1,
-                'access' => TRUE
+                'slug_objek' => 'tm',
+                'nama_objek' => 'Taman'
             ],
             [
-                'fasilitas_id' => 2,
-                'access' => TRUE
+                'slug_objek' => 'kr',
+                'nama_objek' => 'Kolam Renang'
             ],
             [
-                'fasilitas_id' => 3,
-                'access' => TRUE
+                'slug_objek' => 'gy',
+                'nama_objek' => 'Gym'
             ],
             [
-                'fasilitas_id' => 4,
-                'access' => TRUE
+                'slug_objek' => 'bt',
+                'nama_objek' => 'Lapangan Bulutangkis'
             ],
             [
-                'fasilitas_id' => 5,
-                'access' => TRUE
-            ],
-            [
-                'fasilitas_id' => 1,
-                'access' => FALSE
-            ],
-            [
-                'fasilitas_id' => 2,
-                'access' => FALSE
-            ],
-            [
-                'fasilitas_id' => 3,
-                'access' => FALSE
-            ],
-            [
-                'fasilitas_id' => 4,
-                'access' => FALSE
-            ],
-            [
-                'fasilitas_id' => 5,
-                'access' => FALSE
+                'slug_objek' => 'Bs',
+                'nama_objek' => 'Lapangan Basket'
             ],
         ]);
     }
