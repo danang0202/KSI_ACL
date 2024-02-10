@@ -1,6 +1,6 @@
 # Cara Cloning Project dan Inistall Local
 
-1. Masuk ke sebuah direcotory anda dan jalankan perintah git.clone.
+1. Masuk ke sebuah direcotory anda dan jalankan perintah "git clone https://github.com/danang0202/KSI_ACL.git"
 2. Buka terminal dan arahkan ke  directory /KSI_ACL/Appartment/
 3. jalankan perintah "composer install"
 4. jalankan perintah "php artisan:generate key"
