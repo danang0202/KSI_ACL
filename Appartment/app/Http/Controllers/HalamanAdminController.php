@@ -24,13 +24,17 @@ class HalamanAdminController extends Controller
         public function halaman_kontrol_akses()
         {
             return view('admin.admin-access-control',[
-                'users' => User::with(['userPermission'])->get()
+                'users' => User::all(),
+                'permissions' => UserPermission::all()
             ]);
         }
         
-        public function halaman_edit_user()
+        public function halaman_edit_user(int $user_id, String $permission)
         {
-            return view('admin.admin-edit-user');
+            return view('admin.admin-edit-user',[
+                'user_id' => $user_id,
+                'permission' => $permission
+            ]);
         }
     //Akhir Menampilkan Halaman Admin
 

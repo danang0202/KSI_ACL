@@ -15,31 +15,31 @@ class UserSeeder extends Seeder
     {
         User::insert([
             [
-                'nama' => 'Guswana',
+                'name' => 'Guswana',
                 'email' => 'gus@gmail.com',
                 'password' => 'gus123',
-                'no_kartu_unit' => '12077',
+                'no_kartu_unit' => '12073',
                 'tipe_unit_id' => 2,
                 'alamat' => 'alamat gus',
-                'role_id' => 'penghuni'
+                'role_id' => 1
             ],
             [
-                'nama' => 'Admin',
+                'name' => 'Admin',
                 'email' => 'admin@gmail.com',
                 'password' => 'admin123',
                 'no_kartu_unit' => '12077',
                 'tipe_unit_id' => 2,
                 'alamat' => 'alamat admin',
-                'role_id' => 'admin'
+                'role_id' => 2
             ],
             [
-                'nama' => 'Danang',
+                'name' => 'Danang',
                 'email' => 'danang@gmail.com',
                 'password' => 'danang123',
-                'no_kartu_unit' => '12077',
+                'no_kartu_unit' => '12075',
                 'tipe_unit_id' => 3,
                 'alamat' => 'alamat danang',
-                'role_id' => 'penghuni'
+                'role_id' => 1
             ],
         ]);
     }

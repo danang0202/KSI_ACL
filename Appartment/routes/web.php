@@ -48,7 +48,8 @@ Route::middleware('auth')->group(function () {
 //Awal Routing Halaman Admin
     Route::get('/admin-dashboard', [HalamanAdminController::class, 'halaman_dashboard'])->name('admin.dashboard');
     Route::get('/admin-kontrol-akses', [HalamanAdminController::class, 'halaman_kontrol_akses'])->name('admin.kontrol-akses');
-    Route::get('/admin-edit-user', [HalamanAdminController::class, 'halaman_edit_user'])->name('admin.edit-user');
+    Route::get('/admin-edit-user/{int:user_id}/{string:permission}', [HalamanAdminController::class, 'halaman_edit_user'])->name('admin.edit-user');
+    Route::post('/admin-action-edit', [HalamanAdminController::class, ''])->name('admin.action-edit');
     Route::get('/admin-list-request', [HalamanAdminController::class, 'halaman_list_request'])->name('admin.list-request');
 //Akhir Routing Halaman Admin
 

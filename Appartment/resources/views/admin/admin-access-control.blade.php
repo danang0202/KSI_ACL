@@ -227,33 +227,23 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Sancita Maharani</td>
-                            <td>Yes</td>
-                            <td>Yes</td>
-                            <td>Yes</td>
-                            <td>Yes</td>
-                            <td>Yes</td>
-                            <td>
-                                <a href="admin-edit-user.html" class="btn btn-sm btn-primary">Edit</a>
-                            </td>
-                        </tr>
-
-                      @php
+                      <?php
                           $no = 0;
-                      @endphp
-                      @foreach ($users as $user)
-                          @php
-                              $all_permission = "";
-                              $no = $no + 1;
-                          @endphp
-                          @if ($user->name == 'admin')
+                      ?>
+                      @foreach ($users as $user)                      
+                          @if ($user->role_id == 2)
                               @continue
                           @endif
+                          
+                          <?php
+                              $all_permission = "";
+                              $no = $no + 1;
+                          ?>
 
-                          @foreach ($user->userPermission as $permission)
-                              $all_permission = $all_permission.", ".$permission;
+                          @foreach ($permissions->where('user_id', $user->id) as $permission)
+                              <?php
+                                  $all_permission = $all_permission.", ".$permission->permission_id;
+                              ?>
                           @endforeach
                         
                           <tr>
