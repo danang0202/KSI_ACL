@@ -38,7 +38,7 @@ Route::middleware(['auth','user'])->group(function () {
     Route::post('/user-profile', [HalamanUserController::class, 'edit_profil'])->name('profile.edit');
     Route::delete('/user-profile/{id}', [HalamanUserController::class, 'hapus_akun'])->name('profile.destroy');
 
-    Route::get('/', [Controller::class, 'UserDashboard'])->name('user-dashboard');
+    Route::get('/user', [Controller::class, 'UserDashboard'])->name('user-dashboard');
     Route::get('/list-request', [Controller::class, 'UserListRequest'])->name('user-list-req');
     Route::get('/garden-request', [Controller::class, 'UserGardenRequest'])->middleware('permission.garden')->name('user-req-garden');
     Route::get('/gym-request', [Controller::class, 'UserGymRequest'])->middleware('permission.gym')->name('user-req-gym');
