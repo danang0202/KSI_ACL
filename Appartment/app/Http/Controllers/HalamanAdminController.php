@@ -99,5 +99,4 @@ class HalamanAdminController extends Controller
             return redirect("/admin/access-control")->with('success', 'Akses berhasil diperbarui');
         }
     //Akhir Edit Akses User
-
 }

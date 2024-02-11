@@ -56,8 +56,9 @@ class Controller extends BaseController
         return view('user.user-add-basket-request', ['user' => $request->user(), 'initials' => self::getInitials($request->user()->name)]);
     }
 
-    public function back_dashboard (){
+    public function back_dashboard()
+    {
         $user = User::find(Auth::id());
-        return  $user->role_id == 1 ? redirect('/user') : redirect('/admin');
+        return  $user->role_id == 1 ? redirect('/') : redirect('/admin');
     }
 }

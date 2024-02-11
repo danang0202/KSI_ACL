@@ -22,10 +22,6 @@ Route::get('/non-authorize', function () {
     return view('403');
 })->name('unauthorized');
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
-
 Route::get('/back', [Controller::class, 'back_dashboard'])->name('back');
 Route::get('/error', function () {
     return view('400');
@@ -38,7 +34,7 @@ Route::middleware(['auth','user'])->group(function () {
     Route::post('/user-profile', [HalamanUserController::class, 'edit_profil'])->name('profile.edit');
     Route::delete('/user-profile/{id}', [HalamanUserController::class, 'hapus_akun'])->name('profile.destroy');
 
-    Route::get('/user', [Controller::class, 'UserDashboard'])->name('user-dashboard');
+    Route::get('/', [Controller::class, 'UserDashboard'])->name('user-dashboard');
     Route::get('/list-request', [Controller::class, 'UserListRequest'])->name('user-list-req');
     Route::get('/garden-request', [Controller::class, 'UserGardenRequest'])->middleware('permission.garden')->name('user-req-garden');
     Route::get('/gym-request', [Controller::class, 'UserGymRequest'])->middleware('permission.gym')->name('user-req-gym');

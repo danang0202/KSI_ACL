@@ -284,6 +284,9 @@
     <!-- Page JS -->
     <script src="../../assets/js/app-request-list-user.js"></script>
     <script src="../../assets/js/charts-apex.js"></script>
+
+    {{-- sweet alert --}}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>
