@@ -53,8 +53,3 @@ Route::middleware(['auth'])->group(function () {
 });
 
 require __DIR__ . '/auth.php';
-
-//  Route::get('/user-profile', [HalamanUserController::class, 'halaman_profile'])->name('user.profile');
-// Route::get('/admin-dashboard', [HalamanAdminController::class, 'halaman_dashboard'])->name('admin.dashboard');
-//     Route::get('/admin-edit-user', [HalamanAdminController::class, 'halaman_edit_user'])->name('admin.edit-user');
-//     Route::get('/admin-list-request', [HalamanAdminController::class, 'halaman_list_request'])->name('admin.list-request');
