@@ -47,7 +47,7 @@
       <div class="misc-wrapper">
         <h2 class="mb-2 mx-2">Oops! 😖 You don't have access to this page :</h2>
         <p></p>
-        <a href="index.html" class="btn btn-primary">Back to home</a>
+        <a href="{{ route('back') }}" class="btn btn-primary">Back to home</a>
         <div class="mt-3">
           <img
             src="../../assets/img/403.png"

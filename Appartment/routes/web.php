@@ -26,10 +26,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/akses', function () {
-    return view('admin.admin-edit-user');
-})->name('admin.admin-edit-access');
-
+Route::get('/back', [Controller::class, 'back_dashboard'])->name('back');
 
 // Route ini digunakan untuk grup user
 Route::middleware(['auth', 'user'])->group(function () {
