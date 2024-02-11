@@ -22,6 +22,10 @@ Route::get('/non-authorize', function () {
     return view('403');
 })->name('unauthorized');
 
+Route::get('/error', function () {
+    return view('400');
+})->name('error');
+
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');

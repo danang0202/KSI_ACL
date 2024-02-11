@@ -50,7 +50,7 @@
     <!-- Error -->
     <div class="container-xxl container-p-y">
         <div class="misc-wrapper">
-            <h2 class="mb-2 mx-2">Oops! 😖 You don't have access to this page :</h2>
+            <h2 class="mb-2 mx-2">Oops! 😖 Your request have an error</h2>
             <p></p>
             <a href="javascript:history.back()" class="btn btn-primary">Back</a>
             <div class="mt-3">
