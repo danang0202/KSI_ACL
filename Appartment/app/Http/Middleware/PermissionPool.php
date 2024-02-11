@@ -18,4 +18,4 @@ class PermissionPool
     {
         return UserPermission::isHavePermission($request->user()->id, 2) ?  $next($request) : redirect()->route('unauthorized');
     }
-}
+} 
