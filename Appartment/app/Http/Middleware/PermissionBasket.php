@@ -2,11 +2,12 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\UserPermission;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class AdminMiddleware
+class PermissionBasket
 {
     /**
      * Handle an incoming request.
@@ -15,9 +16,6 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if ($request->user() && $request->user()->role_id != 2) { // jika bukan admin maka tidak bisa mengakses route
-            return redirect()->route('unauthorized'); // Ganti 'unauthorized' dengan rute yang sesuai untuk akses yang tidak diizinkan
-        }
-        return $next($request);
+        return UserPermission::isHavePermission($request->user()->id, 5) ?  $next($request) : redirect()->route('unauthorized');
     }
 }

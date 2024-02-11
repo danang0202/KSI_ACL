@@ -28,6 +28,17 @@ class UserPermission extends Model
 
     public function permission()
     {
+
         return $this->belongsTo(Permission::class, 'permission_id');
+    }
+
+    public static function findByUserId($user_id)
+    {
+        return self::where('user_id', $user_id)->get();
+    }
+    public static function isHavePermission($user_id, $id_permission)
+    {
+        $permission =  self::where('user_id', $user_id)->where('permission_id', $id_permission)->get();
+        return $permission->isEmpty() ? false : true;
     }
 }
