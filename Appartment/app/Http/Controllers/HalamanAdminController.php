@@ -2,31 +2,37 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Permission;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\UserPermission;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 
+use function PHPUnit\Framework\isNull;
+
 class HalamanAdminController extends Controller
 {
     //Awal Menampilkan Halaman Admin
-        public function halaman_dashboard()
-        {
-            return view('admin.admin-dashboard');
-        }
+        // public function halaman_dashboard()
+        // {
+        //     return view('admin.admin-dashboard');
+        // }
 
-        public function halaman_list_request()
-        {
-            return view('admin.admin-list-request');
-        }
+        // public function halaman_list_request()
+        // {
+        //     return view('admin.admin-list-request');
+        // }
 
         public function halaman_kontrol_akses()
         {
+            $users = User::with(['permissions'])->get();
+            // dd(gettype($users));
+            // $users->toArray();
             return view('admin.admin-access-control',[
-                'users' => User::all(),
-                'permissions' => UserPermission::all()
+                'users' => $users
             ]);
+            // ini sudah mendapatkan permission dari user, cara aksesnya untuk setiap user adalah $user->permissions (in array) nanti dilooping dan bisa diakses misal $user->permissions[0]->id
         }
         
         public function halaman_edit_user(int $user_id, String $permission)

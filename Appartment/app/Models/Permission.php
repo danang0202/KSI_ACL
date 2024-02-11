@@ -20,9 +20,4 @@ class Permission extends Model
         'slug_objek',
         'nama_objek'
     ];
-
-    public function userPermission()
-    {
-        return $this->hasMany(UserPermission::class, 'user_permission_id');
-    }
 }
