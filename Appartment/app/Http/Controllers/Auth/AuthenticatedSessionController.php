@@ -29,7 +29,9 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return  $request->user()->role_id == 1 ? redirect('/') : redirect('/admin');
+        return $request->user()->role_id == 1
+            ? redirect('/')->with('alert', 'Anda berhasil Login!')
+            : redirect('/admin')->with('alert', 'Anda berhasil Login!');
         // return redirect()->intended(RouteServiceProvider::HOME);
     }
 
@@ -44,6 +46,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/login')->with('alert', 'Anda berhasil Logout!');
     }
 }

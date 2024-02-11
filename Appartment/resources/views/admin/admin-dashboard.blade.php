@@ -3,6 +3,20 @@
 
 @section('content')
     <div class="container-xxl flex-grow-1 container-p-y">
+
+        {{-- Ketika berhasil lofin tampilkan alert --}}
+        @if (session('alert'))
+            <script>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success!',
+                    text: '{{ session('alert') }}',
+                    showConfirmButton: false,
+                    timer: 1000 
+                });
+            </script>
+        @endif
+
         <div class="row flex-equal-height">
             <!-- Total Requests -->
             <div class="col-xl-3 col-md-3 col-6 mb-4">

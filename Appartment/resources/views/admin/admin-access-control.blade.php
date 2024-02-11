@@ -4,6 +4,20 @@
 
 @section('content')
     <div class="container-xxl flex-grow-1 container-p-y">
+
+        {{-- Ketika berhasil ubah user tampilkan alert --}}
+        @if (session('success'))
+            <script>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success!',
+                    text: '{{ session('success') }}',
+                    showConfirmButton: false,
+                    timer: 1000
+                });
+            </script>
+        @endif
+
         <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Users /</span> Access
             Control Permission</h4>
         <!-- Request List Table -->
@@ -21,11 +35,11 @@
                         <tr>
                             <th></th>
                             <th>Nama Kepala Rumah Tangga</th>
-                            <th>Garden</th>
-                            <th>Pool</th>
-                            <th>Gym</th>
-                            <th>Badminton Field</th>
-                            <th>Basket Field</th>
+                            <th class="text-center">Garden</th>
+                            <th class="text-center">Pool</th>
+                            <th class="text-center">Gym</th>
+                            <th class="text-center">Badminton Field</th>
+                            <th class="text-center">Basket Field</th>
                             <th class="cell-fit">Actions</th>
                         </tr>
                     </thead>
@@ -49,13 +63,40 @@
                             <tr>
                                 <td>{{ $no }}</td>
                                 <td>{{ $user->name }}</td>
-                                <td>{{ preg_match('/1/', $all_permission) ? 'Yes' : 'No' }}</td>
-                                <td>{{ preg_match('/2/', $all_permission) ? 'Yes' : 'No' }}</td>
-                                <td>{{ preg_match('/3/', $all_permission) ? 'Yes' : 'No' }}</td>
-                                <td>{{ preg_match('/4/', $all_permission) ? 'Yes' : 'No' }}</td>
-                                <td>{{ preg_match('/5/', $all_permission) ? 'Yes' : 'No' }}</td>
+                                <td class="text-center">
+                                    <span
+                                        class="{{ preg_match('/1/', $all_permission) ? 'badge bg-success' : 'badge bg-danger' }}">
+                                        {{ preg_match('/1/', $all_permission) ? 'Yes' : 'No' }}
+                                    </span>
+                                </td>
+                                <td class="text-center">
+                                    <span
+                                        class="{{ preg_match('/2/', $all_permission) ? 'badge bg-success' : 'badge bg-danger' }}">
+                                        {{ preg_match('/2/', $all_permission) ? 'Yes' : 'No' }}
+                                    </span>
+                                </td>
+                                <td class="text-center">
+                                    <span
+                                        class="{{ preg_match('/3/', $all_permission) ? 'badge bg-success' : 'badge bg-danger' }}">
+                                        {{ preg_match('/3/', $all_permission) ? 'Yes' : 'No' }}
+                                    </span>
+                                </td>
+                                <td class="text-center">
+                                    <span
+                                        class="{{ preg_match('/4/', $all_permission) ? 'badge bg-success' : 'badge bg-danger' }}">
+                                        {{ preg_match('/4/', $all_permission) ? 'Yes' : 'No' }}
+                                    </span>
+                                </td>
+                                <td class="text-center">
+                                    <span
+                                        class="{{ preg_match('/5/', $all_permission) ? 'badge bg-success' : 'badge bg-danger' }}">
+                                        {{ preg_match('/5/', $all_permission) ? 'Yes' : 'No' }}
+                                    </span>
+                                </td>
+
                                 <td>
-                                    <a href="{{ route('admin-edit-access',['access'=>$user->id."-".$user->name."-".$user->email."-".$all_permission]) }}" class="btn btn-sm btn-primary">Edit</a>
+                                    <a href="{{ route('admin-edit-access', ['access' => $user->id . '-' . $user->name . '-' . $user->email . '-' . $all_permission]) }}"
+                                        class="btn btn-sm btn-primary">Edit</a>
                                 </td>
                             </tr>
                         @endforeach
