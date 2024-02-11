@@ -49,21 +49,8 @@
 
     <!-- Error -->
     <div class="container-xxl container-p-y">
-      <div class="misc-wrapper">
-        <h2 class="mb-2 mx-2">Oops! 😖 You don't have access to this page :</h2>
-        <p></p>
-        <a href="{{ route('back') }}" class="btn btn-primary">Back to home</a>
-        <div class="mt-3">
-          <img
-            src="../../assets/img/403.png"
-            alt="page-misc-error-light"
-            width="300"
-            class="img-fluid"
-            data-app-dark-img="illustrations/page-misc-error-dark.png"
-            data-app-light-img="illustrations/page-misc-error-light.png"
-          />
         <div class="misc-wrapper">
-            <h2 class="mb-2 mx-2">Oops! 😖 You don't have access to this page :</h2>
+            <h2 class="mb-2 mx-2">Oops! 😖 Your request have an error</h2>
             <p></p>
             <a href="javascript:history.back()" class="btn btn-primary">Back</a>
             <div class="mt-3">

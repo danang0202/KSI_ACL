@@ -27,14 +27,18 @@ Route::get('/', function () {
 })->name('welcome');
 
 Route::get('/back', [Controller::class, 'back_dashboard'])->name('back');
+Route::get('/error', function () {
+    return view('400');
+})->name('error');
+
 
 // Route ini digunakan untuk grup user
-Route::middleware(['auth', 'user'])->group(function () {
+Route::middleware(['auth','user'])->group(function () {
     Route::get('/user-profile', [HalamanUserController::class, 'halaman_profil'])->name('profile.tampilan');
     Route::post('/user-profile', [HalamanUserController::class, 'edit_profil'])->name('profile.edit');
     Route::delete('/user-profile/{id}', [HalamanUserController::class, 'hapus_akun'])->name('profile.destroy');
 
-    Route::get('/user', [Controller::class, 'UserDashboard'])->name('user-dashboard');
+    Route::get('/', [Controller::class, 'UserDashboard'])->name('user-dashboard');
     Route::get('/list-request', [Controller::class, 'UserListRequest'])->name('user-list-req');
     Route::get('/garden-request', [Controller::class, 'UserGardenRequest'])->middleware('permission.garden')->name('user-req-garden');
     Route::get('/gym-request', [Controller::class, 'UserGymRequest'])->middleware('permission.gym')->name('user-req-gym');
@@ -44,7 +48,7 @@ Route::middleware(['auth', 'user'])->group(function () {
 });
 
 // Route ini digunakan untuk  grup admin
-Route::middleware(['auth', 'admin'])->group(function () {
+Route::middleware(['auth','admin'])->group(function () {
     Route::get('/admin', [AdminController::class, 'adminDashboard'])->name('admin-dashboard');
     Route::get('/admin/list-user', [AdminController::class, 'adminListUser'])->name('admin-list-user');
     Route::get('/admin/access-control', [HalamanAdminController::class, 'halaman_kontrol_akses'])->name('admin-access-control');
@@ -54,8 +58,3 @@ Route::middleware(['auth', 'admin'])->group(function () {
 });
 
 require __DIR__ . '/auth.php';
-
-//  Route::get('/user-profile', [HalamanUserController::class, 'halaman_profile'])->name('user.profile');
-// Route::get('/admin-dashboard', [HalamanAdminController::class, 'halaman_dashboard'])->name('admin.dashboard');
-//     Route::get('/admin-edit-user', [HalamanAdminController::class, 'halaman_edit_user'])->name('admin.edit-user');
-//     Route::get('/admin-list-request', [HalamanAdminController::class, 'halaman_list_request'])->name('admin.list-request');
