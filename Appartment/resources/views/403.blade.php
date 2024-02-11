@@ -62,7 +62,7 @@
             data-app-dark-img="illustrations/page-misc-error-dark.png"
             data-app-light-img="illustrations/page-misc-error-light.png"
           />
-        <div class="misc-wrapper">
+        {{-- <div class="misc-wrapper">
             <h2 class="mb-2 mx-2">Oops! 😖 You don't have access to this page :</h2>
             <p></p>
             <a href="javascript:history.back()" class="btn btn-primary">Back</a>
@@ -71,7 +71,7 @@
                     data-app-dark-img="illustrations/page-misc-error-dark.png"
                     data-app-light-img="illustrations/page-misc-error-light.png" />
             </div>
-        </div>
+        </div> --}}
     </div>
     <!-- /Error -->
 
