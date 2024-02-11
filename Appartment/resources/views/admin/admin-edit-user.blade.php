@@ -215,34 +215,34 @@
                         />
                       </div>
                       <div class="mb-3">
-                        <label class="form-label" for="basic-default-country">Cluster</label>
-                        <select class="form-select" id="basic-default-country" required>
-                          <option value="">Update Cluster</option>
-                          <option value="usa">Orchid</option>
-                          <option value="uk">Rose</option>
-                          <option value="france">Jasmine</option>
-                        </select>
+                        <label class="form-label" for="email">email</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="basic-default-name"
+                          value="sanci@gmail.com" / readonly
+                        />
                       </div>
                       <div class="mb-3">
                         <label class="form-label">Jenis Fasilitas</label>
                         <div>
-                            <input type="checkbox" id="garden" name="fasilitas" value="garden" checked abled>
+                            <input type="checkbox" id="garden" name="fasilitas[]" value="1" checked abled>
                             <label for="garden">Garden</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="pool" name="fasilitas" value="pool" checked abled>
+                            <input type="checkbox" id="pool" name="fasilitas[]" value="2" checked abled>
                             <label for="pool">Pool</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="gym" name="fasilitas" value="gym" checked abled>
+                            <input type="checkbox" id="gym" name="fasilitas[]" value="3" checked abled>
                             <label for="gym">Gym</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="badminton-field" name="fasilitas" value="badminton-field" checked abled>
+                            <input type="checkbox" id="badminton-field" name="fasilitas[]" value="4" checked abled>
                             <label for="badminton-field">Badminton Field</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="basket-field" name="fasilitas" value="basket-field" checked abled>
+                            <input type="checkbox" id="basket-field" name="fasilitas[]" value="5" checked abled>
                             <label for="basket-field">Basket Field</label>
                         </div>
                     </div>

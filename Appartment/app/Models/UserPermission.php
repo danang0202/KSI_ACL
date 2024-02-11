@@ -18,7 +18,8 @@ class UserPermission extends Model
 
     protected $fillable = [
         'user_id',
-        'permission_id'
+        'permission_id',
+        // 'access'
     ];
 
     public function user()

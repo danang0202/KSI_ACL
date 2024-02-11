@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\HalamanUserController;
+use App\Http\Controllers\HalamanAdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,17 +18,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/testing', function () {
-//     return view('admin.admin-edit-user');
-// });
+Route::get('/non-authorize', function () {
+    return view('403');
+})->name('unauthorized');
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/', function () {
+    return view('welcome');
+})->name('welcome');
 
 
 // Route ini digunakan untuk grup user
@@ -48,8 +46,12 @@ Route::middleware(['auth', 'user'])->group(function () {
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin', [AdminController::class, 'adminDashboard'])->name('admin-dashboard');
     Route::get('/admin/list-user', [AdminController::class, 'adminListUser'])->name('admin-list-user');
+    Route::get('/admin/access-control', [HalamanAdminController::class, 'halaman_kontrol_akses'])->name('admin-access-control');
 });
 
-
-
 require __DIR__ . '/auth.php';
+
+//  Route::get('/user-profile', [HalamanUserController::class, 'halaman_profile'])->name('user.profile');
+// Route::get('/admin-dashboard', [HalamanAdminController::class, 'halaman_dashboard'])->name('admin.dashboard');
+//     Route::get('/admin-edit-user', [HalamanAdminController::class, 'halaman_edit_user'])->name('admin.edit-user');
+//     Route::get('/admin-list-request', [HalamanAdminController::class, 'halaman_list_request'])->name('admin.list-request');

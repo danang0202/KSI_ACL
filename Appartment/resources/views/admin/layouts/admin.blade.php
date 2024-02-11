@@ -97,6 +97,12 @@
                                 </a>
                             </li>
                         </ul>
+                        <ul class="menu-sub">
+                            <li class="menu-item">
+                                <a href="{{ route('admin-access-control') }}" class="menu-link">
+                                    <div>Access Control Permission</div>
+                                </a>
+                        </ul>
                     </li>
 
                     <!-- Manajemen Requests -->

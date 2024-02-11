@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users','id');
             $table->foreignId('permission_id')->constrained('permission','id');
+            // $table->boolean('access');
             $table->timestamps();
         });
     }

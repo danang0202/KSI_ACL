@@ -31,32 +31,32 @@
             <label class="block font-medium text-sm text-gray-700"> Tipe Unit </label>
             <div class="flex flex-col mt-2">
                 <div class="flex items-center">
-                    <input type="radio" id="tipe_unit_1" name="tipe_unit" value="amaryllis" required>
+                    <input type="radio" id="tipe_unit_1" name="tipe_unit_id" value="1" required>
                     <label for="tipe_unit_1" class="ml-2">Amaryllis</label>
                 </div>
         
                 <div class="flex items-center mt-2">
-                    <input type="radio" id="tipe_unit_2" name="tipe_unit" value="bougenville" required>
+                    <input type="radio" id="tipe_unit_2" name="tipe_unit_id" value="2" required>
                     <label for="tipe_unit_2" class="ml-2">Bougenville</label>
                 </div>
         
                 <div class="flex items-center mt-2">
-                    <input type="radio" id="tipe_unit_3" name="tipe_unit" value="violet" required>
+                    <input type="radio" id="tipe_unit_3" name="tipe_unit_id" value="3" required>
                     <label for="tipe_unit_3" class="ml-2">Violet</label>
                 </div>
         
                 <div class="flex items-center mt-2">
-                    <input type="radio" id="tipe_unit_4" name="tipe_unit" value="rose" required>
+                    <input type="radio" id="tipe_unit_4" name="tipe_unit_id" value="4" required>
                     <label for="tipe_unit_4" class="ml-2">Rose</label>
                 </div>
         
                 <div class="flex items-center mt-2">
-                    <input type="radio" id="tipe_unit_5" name="tipe_unit" value="clover" required>
+                    <input type="radio" id="tipe_unit_5" name="tipe_unit_id" value="5" required>
                     <label for="tipe_unit_5" class="ml-2">Clover</label>
                 </div>
         
                 <div class="flex items-center mt-2">
-                    <input type="radio" id="tipe_unit_6" name="tipe_unit" value="orchid" required>
+                    <input type="radio" id="tipe_unit_6" name="tipe_unit_id" value="6" required>
                     <label for="tipe_unit_6" class="ml-2">Orchid</label>
                 </div>
             </div>
