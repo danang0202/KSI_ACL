@@ -39,11 +39,11 @@
                             @endif
                             @php
                                 $no = $no + 1;
+                                $all_permission = '';
                             @endphp
-                            @foreach ($user->permissions as $permission)
+                            @foreach ($permissions->where('user_id', $user->id) as $permission)
                                 @php
-                                    $all_permission = '';
-                                    $all_permission = $all_permission . ', ' . $permission->id;
+                                    $all_permission = $all_permission . ',' . $permission->permission_id;
                                 @endphp
                             @endforeach
                             <tr>
@@ -55,7 +55,7 @@
                                 <td>{{ preg_match('/4/', $all_permission) ? 'Yes' : 'No' }}</td>
                                 <td>{{ preg_match('/5/', $all_permission) ? 'Yes' : 'No' }}</td>
                                 <td>
-                                    <a href="admin-edit-user.html" class="btn btn-sm btn-primary">Edit</a>
+                                    <a href="{{ route('admin-edit-access',['access'=>$user->id."-".$user->name."-".$user->email."-".$all_permission]) }}" class="btn btn-sm btn-primary">Edit</a>
                                 </td>
                             </tr>
                         @endforeach

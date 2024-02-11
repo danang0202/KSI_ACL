@@ -26,14 +26,18 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
+Route::get('/akses', function () {
+    return view('admin.admin-edit-user');
+})->name('admin.admin-edit-access');
+
 
 // Route ini digunakan untuk grup user
 Route::middleware(['auth', 'user'])->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/user-profile', [HalamanUserController::class, 'halaman_profil'])->name('profile.tampilan');
+    Route::post('/user-profile', [HalamanUserController::class, 'edit_profil'])->name('profile.edit');
+    Route::delete('/user-profile/{id}', [HalamanUserController::class, 'hapus_akun'])->name('profile.destroy');
 
-    Route::get('/', [Controller::class, 'UserDashboard'])->name('user-dashboard');
+    Route::get('/user', [Controller::class, 'UserDashboard'])->name('user-dashboard');
     Route::get('/list-request', [Controller::class, 'UserListRequest'])->name('user-list-req');
     Route::get('/garden-request', [Controller::class, 'UserGardenRequest'])->middleware('permission.garden')->name('user-req-garden');
     Route::get('/gym-request', [Controller::class, 'UserGymRequest'])->middleware('permission.gym')->name('user-req-gym');
@@ -42,11 +46,14 @@ Route::middleware(['auth', 'user'])->group(function () {
     Route::get('/basket-request', [Controller::class, 'UserBasketRequest'])->middleware('permission.basket')->name('user-req-basket');
 });
 
-// Route ini digunakan untuk  gvrub admin
+// Route ini digunakan untuk  grup admin
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin', [AdminController::class, 'adminDashboard'])->name('admin-dashboard');
     Route::get('/admin/list-user', [AdminController::class, 'adminListUser'])->name('admin-list-user');
     Route::get('/admin/access-control', [HalamanAdminController::class, 'halaman_kontrol_akses'])->name('admin-access-control');
+    Route::get('/admin/edit-access/{access}', [HalamanAdminController::class, 'halaman_edit_akses'])->name('admin-edit-access');
+    Route::post('/admin/action-edit-access', [HalamanAdminController::class, 'aksi_edit_akses'])->name('admin-action-edit-access');
+    Route::get('/admin/list-request', [HalamanAdminController::class, 'halaman_list_request'])->name('admin-list-request');
 });
 
 require __DIR__ . '/auth.php';

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\UserPermission;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 
@@ -14,11 +15,22 @@ class HalamanUserController extends Controller
     //     {
     //         return view('user.user-dashboard');
     //     }
+        
+        public function getInitials($nama)
+        {
+            $namaArr = explode(' ', $nama);
+            $initials = '';
+            foreach ($namaArr as $word) {
+                $initials .= strtoupper(substr($word, 0, 1));
+            }
+            return substr($initials, 0, 2);
+        }
 
-    //     public function halaman_profile()
-    //     {
-    //         return view('user.user-profile');
-    //     }
+        public function halaman_profil()
+        {
+            $user = User::with(['tipeUnit'])->find(Auth::id());
+            return view('user.user-profile',['user' => $user, 'initials' => self::getInitials($user->name)]);
+        }
 
     //     public function halaman_list_request()
     //     {
@@ -53,11 +65,10 @@ class HalamanUserController extends Controller
 
 
     //Awal Edit Profile User
-    public function edit_profile(Request $request): RedirectResponse
+    public function edit_profil(Request $request)
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'alamat' => ['required', 'string']
         ]);
 
@@ -65,22 +76,22 @@ class HalamanUserController extends Controller
 
         $user = User::find($user_id);
         $user->name = $request->name;
-        $user->email = $request->email;
         $user->alamat = $request->alamat;
         $user->save();
 
-        return redirect('user.dashboard')->with('success', 'Pofil berhasil diperbarui');
+        return redirect('/user-profile')->with('success', 'Pofil berhasil diperbarui');
     }
     //Akhir Edit Profile User
 
     //Awal Hapus Akun
-    public function hapus_akun()
+    public function hapus_akun($id)
     {
-        $user_id = Auth::id();
-        $user = User::find($user_id);
+        $user = User::find($id);
+        UserPermission::where('user_id', $id)->delete();
         $user->delete();
         //diarahkan ke halaman sebelum login
-        return redirect('welcome')->with('success', 'Akun berhasil dihapus');
+        return redirect('/')->with('success', 'Akun berhasil dihapus');
+        //diarahkan ke halaman sebelum login
     }
     //Akhir Hapus Akun
 }
