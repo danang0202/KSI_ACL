@@ -118,7 +118,7 @@
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
-                                <a href="admin-list-request.html" class="menu-link">
+                                <a href="{{ route('admin-list-request') }}" class="menu-link">
                                     <div>List Requests</div>
                                 </a>
                             </li>

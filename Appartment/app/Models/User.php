@@ -51,4 +51,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Permission::class, 'user_permission');
     }
+
+    public function tipeUnit()
+    {
+        return $this->belongsTo(TipeUnit::class, 'tipe_unit_id');
+    }
 }
