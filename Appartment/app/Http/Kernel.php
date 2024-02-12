@@ -67,7 +67,7 @@ class Kernel extends HttpKernel
         'admin' => \App\Http\Middleware\AdminMiddleware::class,
         'user' => \App\Http\Middleware\UserMiddleware::class,
         'permission.pool' => \App\Http\Middleware\PermissionPool::class,
-        'permission.badminton' => \App\Http\Middleware\PermissionPool::class,
+        'permission.badminton' => \App\Http\Middleware\PermissionBadminton::class,
         'permission.gym' => \App\Http\Middleware\PermissionGym::class,
         'permission.garden' => \App\Http\Middleware\PermissionGarden::class,
         'permission.basket' => \App\Http\Middleware\PermissionBasket::class,
