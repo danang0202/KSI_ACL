@@ -51,7 +51,7 @@ class RegisteredUserController extends Controller
                 'tipe_unit_id' => $request->tipe_unit_id,
                 'alamat' => $request->alamat,
             ]);
-            $user->save();
+            // $user->save();
 
             //mencetak akses fasilitas
             $tipe_id = $request->tipe_unit_id;
