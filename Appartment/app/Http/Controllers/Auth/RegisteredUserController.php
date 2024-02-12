@@ -51,6 +51,8 @@ class RegisteredUserController extends Controller
                 'tipe_unit_id' => $request->tipe_unit_id,
                 'alamat' => $request->alamat,
             ]);
+            $user->save();
+
             //mencetak akses fasilitas
             $tipe_id = $request->tipe_unit_id;
             $user_id = User::select('id')->where('email', $request->email)->first()->id;
@@ -154,7 +156,7 @@ class RegisteredUserController extends Controller
             //Akhir Pengelompokan Akses
             // event(new Registered($user));
             // Auth::login($user);
-            return redirect('login');
+            return redirect('/login');
         } catch (\Throwable $th) {
             return redirect('error');
         }
