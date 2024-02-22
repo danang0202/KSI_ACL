@@ -13,7 +13,19 @@
             timer: 1000 
         });
     </script>
-@endif
+    @endif
+
+    {{-- {{url('captcha-validation')}} --}}
+
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div><br />
+    @endif
 
     <form method="POST" action="{{ route('login') }}">
         @csrf
@@ -34,6 +46,19 @@
                 autocomplete="current-password" />
 
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
+        </div>
+
+        <!-- Kode Captcha -->
+        <div class="container mt-4">
+            <div class="captcha">
+                <span>{!! captcha_img() !!}</span>
+                <button type="button" class="btn btn-danger" class="reload" id="reload">
+                    &#x21bb;
+                </button>
+            </div>
+        </div>
+        <div class="mt-4">
+            <input id="captcha" type="text" class="form-control" placeholder="Enter Captcha" name="captcha">
         </div>
 
         <!-- Remember Me -->
